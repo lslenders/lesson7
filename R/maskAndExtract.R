@@ -6,9 +6,12 @@
 
 
 ## Mask raster data to Netherlands -------------------------------------------------------
-library(raster)
+library(r
+        aster)
 
+library(rgdal)
 
+wagContourUTM <- spTransform(wagContour, CRS(proj4string(wagLandsat)))
   
 
 maskAndExtract <- function(country, lvl, input_raster) { 
@@ -21,9 +24,6 @@ maskAndExtract <- function(country, lvl, input_raster) {
 
 NL <- maskAndExtract('NLD', 2, MODIS)
 
-coordinates(NL)
 
-class(nlMun)  
-head(nlMun@data)
 
  
